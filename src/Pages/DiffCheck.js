@@ -53,7 +53,7 @@ function DiffChecker() {
         </div>
       </div>
       <span>
-        <label for="view">Choose View:</label>
+        <label htmlFor="view">Choose View:</label>
         <select
           onChange={handleViewChange}
           value={outputView}
