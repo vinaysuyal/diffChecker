@@ -36,3 +36,64 @@
     transform: rotate(360deg);
   }
 }
+
+/* styles.module.css */
+.input {
+  flex-direction: column;
+  display: flex;
+  align-items: center; /* Align items in the center */
+}
+
+.output {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+}
+.output div {
+  margin: 10px;
+  width: 80vw;
+  padding: 20px;
+  border-color: #f0f0f0; /* Light gray background */
+  border-width: 10px;
+  border-style: solid;
+  border-radius: 8px; /* Rounded corners */
+}
+
+.input-container-original,
+.input-container-modified {
+  margin: 10px;
+  background-color: #f0f0f0; /* Light gray background */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px; /* Add padding */
+}
+
+textarea {
+  width: 80vw;
+  height: 40vh; /* Reduce height for better proportion */
+  resize: none;
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-size: 16px; /* Increase font size for better readability */
+}
+
+label {
+  display: block; /* Ensure labels are displayed as block elements */
+  margin-bottom: 5px; /* Add spacing between label and textarea */
+}
+
+@media screen and (min-width: 851px) {
+  .input {
+    flex-direction: row;
+    justify-content: center; /* Change justification to display side by side */
+  }
+
+  textarea {
+    width: 40vw;
+    height: 500px;
+  }
+
+  .input-container-original,
+  .input-container-modified {
+    margin: 0 10px; /* Adjust margin for side by side layout */
+  }
+}
