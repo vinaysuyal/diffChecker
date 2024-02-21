@@ -37,7 +37,6 @@ function DiffChecker() {
               setDifferences([]);
             }}
             id="originalTextarea"
-            wrap
           ></textarea>
         </div>
         <div className="input-container-modified">
@@ -48,7 +47,6 @@ function DiffChecker() {
               setDifferences([]);
             }}
             id="modifiedTextarea"
-            wrap=""
           ></textarea>
         </div>
       </div>
