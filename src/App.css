@@ -50,6 +50,7 @@
   text-align: left;
 }
 .output div {
+  overflow: auto;
   margin: 10px;
   width: 80vw;
   padding: 20px;
@@ -79,6 +80,17 @@ textarea {
 label {
   display: block; /* Ensure labels are displayed as block elements */
   margin-bottom: 5px; /* Add spacing between label and textarea */
+}
+.legend {
+  display: flex;
+  margin-left: 20px;
+}
+.legend-color {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  margin-right: 5px;
 }
 
 @media screen and (min-width: 851px) {

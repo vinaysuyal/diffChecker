@@ -19,7 +19,6 @@ function DiffChecker() {
         outputView
       );
     else differences = analyseDifferences(original, modified, outputView);
-    console.log(differences);
     setDifferences(differences);
   };
   const handleViewChange = (event) => {
@@ -69,36 +68,61 @@ function DiffChecker() {
       </span>
 
       {differences.length > 0 && (
-        <div className="output">
-          <div>
-            {differences.map((obj) => {
-              const splittedObj = obj.value.split("\n");
-              return splittedObj.map((word, index) => (
-                <Fragment key={index}>
-                  <span
-                    style={{
-                      whiteSpace: "pre",
-                      backgroundColor:
-                        obj.type === "added"
-                          ? "#D2FFD2"
-                          : obj.type === "removed"
-                          ? "#FFD2D2"
-                          : "none",
-                    }}
-                  >
-                    {word}
-                  </span>
-                  {outputView === "Line" && <br />}
-                  {outputView !== "Line" &&
-                    index !== splittedObj.length - 1 && <br />}
-                  {outputView !== "Line" &&
-                    index === splittedObj.length - 1 &&
-                    splittedObj[index].endsWith("\n") && <br />}
-                </Fragment>
-              ));
-            })}
+        <>
+          <div className="legend">
+            <div className="legend-item">
+              <span
+                className="legend-color"
+                style={{ backgroundColor: "#FFD2D2" }}
+              ></span>
+              <span>Removed</span>
+            </div>
+            <div className="legend-item">
+              <span
+                className="legend-color"
+                style={{ backgroundColor: "#D2FFD2" }}
+              ></span>
+              <span>Added</span>
+            </div>
+            <div className="legend-item">
+              <span
+                className="legend-color"
+                style={{ backgroundColor: "#FFFFFF", border: "1px solid #000" }}
+              ></span>
+              <span>Common</span>
+            </div>
           </div>
-        </div>
+          <div className="output">
+            <div>
+              {differences.map((obj) => {
+                const splittedObj = obj.value.split("\n");
+                return splittedObj.map((word, index) => (
+                  <Fragment key={index}>
+                    <span
+                      style={{
+                        whiteSpace: "pre",
+                        backgroundColor:
+                          obj.type === "added"
+                            ? "#D2FFD2"
+                            : obj.type === "removed"
+                            ? "#FFD2D2"
+                            : "none",
+                      }}
+                    >
+                      {word}
+                    </span>
+                    {outputView === "Line" && <br />}
+                    {outputView !== "Line" &&
+                      index !== splittedObj.length - 1 && <br />}
+                    {outputView !== "Line" &&
+                      index === splittedObj.length - 1 &&
+                      splittedObj[index].endsWith("\n") && <br />}
+                  </Fragment>
+                ));
+              })}
+            </div>
+          </div>
+        </>
       )}
     </>
   );
