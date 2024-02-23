@@ -114,7 +114,7 @@ function DiffChecker() {
                       index !== splittedObj.length - 1 && <br />}
                     {outputView !== "Line" &&
                       index === splittedObj.length - 1 &&
-                      splittedObj[index].endsWith("\n") && <br />}
+                      obj.value.endsWith("\n") && <br />}
                   </Fragment>
                 ));
               })}
