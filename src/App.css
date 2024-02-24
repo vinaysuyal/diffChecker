@@ -1,6 +1,6 @@
 /* styles.module.css */
 * {
-  font-family: cursive, Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 0.5px;
 }
 .input {
@@ -90,6 +90,10 @@ label {
 
 .footer {
   height: 20vh;
+}
+.spinner-container {
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (min-width: 851px) {

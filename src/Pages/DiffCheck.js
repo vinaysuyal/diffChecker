@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import { analyseDifferences } from "../Utils/util";
 import Header from "../Component/Header";
+import Spinner from "../Component/Spinner";
 
 function DiffChecker() {
   const [outputView, setOutputView] = useState("Line");
@@ -8,20 +9,26 @@ function DiffChecker() {
   const [modified, setModified] = useState("");
   const [differences, setDifferences] = useState([]);
   const [softWrap, setSoftWrap] = useState(true);
+  const [loadingDiff, setLoadingDiff] = useState(false);
 
   function processTextarea(text) {
     return text.replace(/\r\n/g, "\n");
   }
   const handleShowDifference = () => {
-    let differences = null;
-    if (outputView === "Line")
-      differences = analyseDifferences(
-        original.split("\n"),
-        modified.split("\n"),
-        outputView
-      );
-    else differences = analyseDifferences(original, modified, outputView);
-    setDifferences(differences);
+    setLoadingDiff(true);
+    setDifferences([]);
+    setTimeout(() => {
+      let differences = null;
+      if (outputView === "Line")
+        differences = analyseDifferences(
+          original.split("\n"),
+          modified.split("\n"),
+          outputView
+        );
+      else differences = analyseDifferences(original, modified, outputView);
+      setDifferences(differences);
+      setLoadingDiff(false);
+    });
   };
   const handleViewChange = (event) => {
     setDifferences([]);
@@ -72,6 +79,11 @@ function DiffChecker() {
           <button onClick={handleShowDifference}>Show Difference(s)</button>
         </span>
       </div>
+      {loadingDiff && (
+        <div className="spinner-container">
+          <Spinner />
+        </div>
+      )}
       {differences.length > 0 && (
         <>
           <div className="legend">
