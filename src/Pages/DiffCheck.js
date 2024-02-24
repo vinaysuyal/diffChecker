@@ -89,7 +89,7 @@ function DiffChecker() {
                 className="legend-color"
                 style={{ backgroundColor: "#D2FFD2" }}
               ></span>
-              <span>Added</span>
+              <span>Insertion</span>
             </div>
             <div className="legend-item">
               <span
@@ -114,7 +114,7 @@ function DiffChecker() {
               >
                 {"⏎"}
               </span>
-              <span>Added New Line</span>
+              <span>Inserted New Line</span>
             </div>
           </div>
           <div className="output">
@@ -161,7 +161,11 @@ function DiffChecker() {
             <div style={{ whiteSpace: softWrap ? "pre-wrap" : "pre" }}>
               {differences.map((obj, index) => {
                 let val = obj.value;
-                if (obj.type !== "common") val = val.replace("\n", " ⏎ \n");
+                if (obj.type !== "common")
+                  val = val.replace(
+                    "\n",
+                    obj.type === "added" ? " ⏎ \n" : " ⏎ "
+                  );
                 return (
                   <Fragment key={index}>
                     <span
