@@ -1,6 +1,7 @@
 /* styles.module.css */
 * {
   font-family: cursive, Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.5px;
 }
 .input {
   flex-direction: column;
@@ -77,16 +78,18 @@ label {
   padding: 2px 5px 2px 5px;
   border: 1px solid #000;
   border-radius: 10px;
+  text-align: center;
 }
 .output__wrap-toggle__on {
-  background-color: #d2ffd2;
-}
-.footer {
-  height: 20vh;
+  background-color: #f0f0f0;
 }
 
 .output__wrap-toggle__off {
-  background-color: #ffd2d2;
+  background-color: #ffffff;
+}
+
+.footer {
+  height: 20vh;
 }
 
 @media screen and (min-width: 851px) {
