@@ -1,0 +1,13 @@
+.nav-title {
+  letter-spacing: 1px;
+  font-weight: 800;
+  font-size: xx-large;
+}
+
+nav {
+  padding: 10px 10px 10px 20px;
+  text-align: left;
+  background-color: #f0f0f0;
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
